@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TravelDestination</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="external/jquery/jquery.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="jquery-ui.min.css">
+		<script>
+			$(function(){$("#datepicker").datepicker();});
+		</script>
+		<script>
+			function validateform()
+				{
+					var name=document.getElementById("name").value;
+						if(name=="" || name==null)
+						{
+							console.log("function");
+							alert("Name is empty");
+							return false;
+						}
+						/*else if
+						{
+							alert("Good to go!");
+							return true;
+						}*/
+				}
+		</script>
+	</head>
+	<body>
+  		<h2>Deatils</h2>
+  		<form method="post" action="" name="details">
+			Name<input type="text" placeholder="Your Name" id="name"><br>
+			Traveldate<input type="text" id="datepicker"><br>
+			Destination<input type="text" placeholder="Your Destination" name="destination"><br>
+			<input type="button" value="submit" onclick="validateform();">
+		</form>
+	</body>
+</html>

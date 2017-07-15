@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>form</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="external/jquery/jquery.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="jquery-ui.min.css">
+		<script>
+			$(function(){$("#dob").datepicker();});
+		</script>
+		<style>
+			fieldset
+			{
+				width:300px;
+			}
+			body
+			{
+				background-color: beige;
+			}
+		</style>
+		<script>
+			function validateform()
+				{
+					var name=document.getElementById("fn").value;
+					var surname=document.getElementById("sur").value;
+					var email=document.getElementById("email").value;
+					var password=document.getElementById("password").value;
+					var dob=document.getElementById("dob").value;
+					if(name==null || name=="")
+					{
+						alert("Name can't be blank");
+						document.getElementById("fn").focus();
+  						return false;
+  					}
+  					else if(surname==null || surname=="")
+  					{
+  						alert("Surname can't be blank");
+						document.getElementById("sur").focus();
+  						return false;
+  					}
+  					else if(email=="")
+  					{
+  						alert("Email is not valid");
+  						document.getElementById("email").focus();
+  						return false;
+  					}
+  					else if(password.length<6)
+  					{  
+  						alert("Password must be at least 6 characters long.");
+  						document.getElementById("password").focus();
+  						return false;  
+  					}
+  					else if(!document.getElementById("male").checked &&
+  							!document.getElementById("female").checked)
+  					{
+  						alert("Gender is not selected");
+  						document.getElementById("gender").focus();
+  						return false;
+  					}
+  					else if(!document.getElementById("ug").checked &&
+  							!document.getElementById("pg").checked)
+  					{
+  						alert("Education is not selected");
+  						document.getElementById("edu").focus();
+  						return false;
+  					}
+  					else if(dob=="")
+  					{
+  						alert("Select Date of Birth");
+  						document.getElementById("dob").focus();
+  						return false;
+  					}
+  					else
+  					{
+  						alert("Good to go");
+  						return true;
+  					}
+				}
+		</script>
+	</head>
+	<body>
+		<center><h1>Form</h1>
+		<fieldset>
+			<legend>User Details</legend>
+			First Name  <input type="text" placeholder="first name" id="fn"><br><br>
+			Surname  <input type="text" placeholder="last name" id="sur"><br><br>
+			Email  <input type="email" placeholder="email" id="email"><br><br>
+			Password  <input type="Password" placeholder="******" id="password"><br><br>
+		</fieldset>
+		<fieldset>
+			<legend id="gender">Gender</legend>
+			<input type="radio" id="male" name="gender">Male
+			<input type="radio" id="female" name="gender">Female
+		</fieldset>
+		<fieldset>
+			<legend>Date of Birth</legend>
+			<input type="text" id="dob">
+		</fieldset>
+		<fieldset>
+			<legend id="edu">Education</legend>
+			<input type="checkbox" id="ug">UG
+			<input type="checkbox" id="pg">PG
+		</fieldset><br>
+		<input type="button" value="Submit Details" onclick="validateform()">
+		</center>
+	</body>
+</html>
